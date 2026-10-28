@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-background text-foreground font-body pt-20">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
