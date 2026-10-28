@@ -119,7 +119,7 @@ export default function Formulaire({
               {/* Bouton d'inscription */}
               <button
                 type="submit"
-                className="flex h-[48px] w-full items-center justify-center gap-3 rounded-xl bg-[#FFC321] px-4 text-sm font-bold text-white transition-colors duration-200 hover:bg-[#F0B510] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2D5B] sm:h-[52px] sm:text-base"
+                className="flex h-[48px] w-full items-center justify-center gap-3 rounded-xl bg-[#FFC321] px-4 text-sm font-bold text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2D5B] sm:h-[52px] sm:text-base hover:bg-white hover:text-primary-yellow border-3 border-primary-yellow cursor-pointer"
               >
                 <svg
                   aria-hidden="true"

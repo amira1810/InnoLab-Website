@@ -4,6 +4,7 @@ import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import WhatsAppButton from "@/components/Whatsapp";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-background text-foreground font-body pt-20">
         <Navbar />
         {children}
+        <WhatsAppButton />
         <Footer />
       </body>
     </html>
