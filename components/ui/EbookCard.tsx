@@ -1,0 +1,67 @@
+import Image from "next/image";
+import Link from "next/link";
+
+interface EbookCardProps {
+  image: string;
+  tags: string[];
+  title: string;
+  price: string;
+  href?: string;
+}
+
+export default function EbookCard({
+  image,
+  tags,
+  title,
+  price,
+  href = "#",
+}: EbookCardProps) {
+  return (
+    <article className="flex h-full min-h-[430px] flex-col rounded-[24px] border border-[#EDF0F3] bg-white p-4 shadow-[0_5px_20px_rgba(11,45,91,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_30px_rgba(11,45,91,0.10)] sm:p-4.5">
+      {/* Image de l'e-book */}
+      <div className="relative h-[265px] w-full shrink-0 overflow-hidden rounded-[17px] bg-[#F0F7FC] sm:h-[275px]">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-contain p-3 transition-transform duration-500 hover:scale-105"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
+      </div>
+
+      {/* Informations */}
+      <div className="mt-4 flex flex-1 flex-col">
+        <h3 className="text-[16px] font-bold leading-[1.45] text-primary-blue sm:text-[17px]">
+          {title}
+        </h3>
+
+        {/* Tags */}
+        <div className="mt-3 flex flex-wrap gap-2">
+          {tags.map((tag, index) => (
+            <span
+              key={`${tag}-${index}`}
+              className="rounded-full border border-[#B8C5D3] px-2.5 py-1 text-[10px] font-medium text-[#263D5B] sm:text-[11px]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Prix et bouton */}
+      <div className="mt-4 flex items-center justify-between gap-2 border-t border-[#F0F2F5] pt-4">
+        <span className="text-[15px] font-bold text-primary-blue sm:text-base">
+          {price}
+        </span>
+
+        <Link
+          href={href}
+          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary-yellow px-4 py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-[#F2B719] hover:gap-3 sm:text-[13px]"
+        >
+          Voir détails
+          <span aria-hidden="true">→</span>
+        </Link>
+      </div>
+    </article>
+  );
+}
