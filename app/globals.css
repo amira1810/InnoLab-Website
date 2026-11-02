@@ -247,3 +247,69 @@ body {
     opacity: 0.7;
   }
 }
+
+
+/* =================================
+   INFINITE GALLERY
+================================= */
+
+.gallery-track {
+  display: flex;
+  width: max-content;
+  animation: gallery-marquee 40s linear infinite !important;
+  animation-play-state: running !important;
+  will-change: transform;
+}
+
+.gallery-group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 24px;
+  padding-right: 24px;
+}
+
+.gallery-image {
+  position: relative;
+  width: 300px;
+  height: 210px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+@media (min-width: 768px) {
+  .gallery-image {
+    width: 340px;
+    height: 230px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-image {
+    width: 380px;
+    height: 250px;
+  }
+}
+
+/* Keep moving even when hovering */
+.gallery-track:hover,
+.gallery-track:focus,
+.gallery-track:active {
+  animation-play-state: running !important;
+}
+
+@keyframes gallery-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track {
+    animation: gallery-marquee 40s linear infinite !important;
+  }
+}
